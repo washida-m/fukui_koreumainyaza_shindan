@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            ItemSeeder::class, // 作成したItemSeederを呼び出す
+        ]);
 
         User::factory()->create([
             'name' => 'Test User',
