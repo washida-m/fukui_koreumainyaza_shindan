@@ -24,11 +24,16 @@
             </div>
         </div>
 
-        <p class="text-2xl text-gray-900 text-center my-20">いくつかの質問に答えたり、ボタンを押すだけで、</br>福井のお土産やグルメの中から、あなたへのおすすめが</br>表示されるんやざ！気軽に試してみての〜！</p>
+        <p class="text-2xl text-gray-900 text-center my-10">いくつかの質問に答えたり、ボタンを押すだけで、</br>福井のお土産やグルメの中から、あなたへのおすすめが</br>表示されるんやざ！気軽に試してみての〜！</p>
     
         {{-- ランダム表示用ボタンを表示 --}}
         <div class="text-center mt-8 space-x-4">
-            <a href="{{ route('items.random') }}" class="btn btn-outline">今日のオススメは？</a> 
+            <a href="{{ route('items.random') }}" class="btn btn-secondary btn-lg w-72 py-9 text-2xl">今日のオススメは？</a> 
+        </div>
+
+        {{-- 診断用ボタンを表示 --}}
+        <div class="text-center mt-8 space-x-4">
+            <a href="{{ route('diagnosis.question1') }}" class="btn btn-primary btn-lg w-72 py-9 text-2xl">診断スタート！</a> 
         </div>
 
     </div>
