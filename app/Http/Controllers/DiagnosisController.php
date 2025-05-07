@@ -199,7 +199,7 @@ class DiagnosisController extends Controller
 
         if ($answer1 === 'A') {
             if ($answer2 === 'A-1') {
-                if ($answer3 === 'A-1-1') { $candidateItemIds = [1, 3]; }
+                if ($answer3 === 'A-1-1') { $candidateItemIds = [1, 3, 18]; }
                 elseif ($answer3 === 'A-1-2') { $candidateItemIds = [4]; }
                 else { $candidateItemIds = []; }
             }elseif ($answer2 === 'A-2') {
@@ -214,7 +214,7 @@ class DiagnosisController extends Controller
                 else { $candidateItemIds = []; }
             }elseif ($answer2 === 'B-2') {
                 if ($answer3 === 'B-2-1') { $candidateItemIds = [9, 13, 14]; }
-                elseif ($answer3 === 'B-2-2') { $candidateItemIds = [16]; }
+                elseif ($answer3 === 'B-2-2') { $candidateItemIds = [16, 20]; }
                 else { $candidateItemIds = []; }
             }
         }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- titleセクションに値を設定 --}}
-@section('title', 'おすすめ診断 - 福井これうまいんやざ〜！')
+@section('title', 'おすすめ診断 - 福井これうまいんやざ〜！診断')
 
 {{-- メインコンテンツ --}}
 @section('content')
@@ -41,5 +41,9 @@
             </button>
         </div>
     </form> 
+
+    <div class="text-center mt-8">
+        <a href="/" class="link link-hover text-info text-lg underline">TOPページに戻る</a>
+    </div>
 
 @endsection 

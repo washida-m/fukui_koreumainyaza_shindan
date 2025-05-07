@@ -6,7 +6,7 @@
 {{-- メインコンテンツ --}}
 @section('content')
 
-    <h2 class="text-6xl font-bold text-center my-4">あなたへのオススメは</br>これやざ〜！</h2>
+    <h2 class="text-6xl font-bold text-center my-10">あなたへのオススメ</h2>
 
     <div class="flex flex-col items-center max-w-xl mx-auto p-4">
         {{-- 画像を表示 --}}
@@ -31,22 +31,23 @@
         <p class="mt-3 text-base text-gray-700 dark:text-gray-300 text-left w-full">
             {!! nl2br(e($item->description))!!}
         </p>
-        {{-- お気に入りボタンを表示 --}}
-        <div class="mt-6 text-center"> 
-            {{-- ここにお気に入りボタンのフォームを置く --}}
-             {{-- <form action="{{ route('favorites.store') }}" method="POST">
-                 @csrf
-                 <input type="hidden" name="item_id" value="{{ $item->id }}">
-                 <button type="submit" class="btn btn-primary">♡ お気に入りに追加</button>
-             </form> --}}
+        {{-- お気に入り追加/削除ボタンを表示 --}}
+        <div class="mt-5 text-center"> 
+            @include('favorites.favorite_button', [
+                'item' => $item,
+                'isFavorited' => $isFavorited
+            ])
         </div>
         {{-- API連携（楽天）表示 --}}
         {{-- <div class="mt-6 w-full"> ... </div> --}}
     </div>
 
-    <div class="text-center mt-8 space-x-4">
-        <a href="/" class="btn">TOPページに戻る</a>
-        {{-- <a href="{{ route('favorites.index') }}" class="btn btn-outline">お気に入り一覧</a>  --}}
+    <div class="text-center mt-8">
+        <a href="/" class="link link-hover text-info text-lg underline">TOPページに戻る</a>
     </div>
+    
+    {{-- <div class="text-center mt-8 space-x-4">
+        <a href="/" class="btn">TOPページに戻る</a>
+    </div> --}}
 
 @endsection 
