@@ -6,14 +6,14 @@
 {{-- メインコンテンツ --}}
 @section('content')
 
-    <h2 class="text-6xl font-bold text-center mt-12 mb-8 px-4">福井これうまいんやざ〜！</br>診断</h2>
+    {{-- <h2 class="text-6xl font-bold text-center mt-12 mb-8 px-4">福井これうまいんやざ〜！</br>診断</h2> --}}
 
     {{-- 診断フォーム --}}
     <form method="POST" action="{{$formAction}}" class="max-w-lg mx-auto">
         @csrf
 
         {{-- 質問ブロック --}}
-        <div class="mb-2 p-10 border border-gray-300 rounded-lg min-h-96">
+        <div class="mt-20 mb-2 p-10 border border-gray-300 rounded-lg min-h-96">
             {{-- 質問内容 --}}
             <p class="mb-16 text-center font-semibold text-2xl">{!! $questionText !!}</p>
 
