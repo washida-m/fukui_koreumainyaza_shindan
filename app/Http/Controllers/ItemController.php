@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Http;
 
 class ItemController extends Controller
 {
+    public function index()
+    {
+        // アイテムを12件ずつページ送りで取得
+        $items = Item::latest()->paginate(12);
+
+        // items.indexにデータを渡して表示
+        return view('items.index', [
+            'items' => $items,
+        ]);
+    }
+
     public function show(Item $item) {
 
         // 指定されたitemの値でお気に入りを検索して取得

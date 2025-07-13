@@ -16,6 +16,7 @@
         {{-- お気に入り一覧へのリンク --}}
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1 text-base-content underline">
+                <li><a href="{{ route('items.index') }}">アイテム一覧</a></li>
                 <li><a href="{{ route('favorites.index') }}">お気に入り一覧</a></li> 
             </ul>
         </div>

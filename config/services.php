@@ -40,4 +40,8 @@ return [
         'affiliate_id' => env('RAKUTEN_AFFILIATE_ID'),
     ],
 
+    'google-maps' => [
+        'key' => env('Maps_API_KEY'),
+    ],
+
 ];

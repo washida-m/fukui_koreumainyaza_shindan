@@ -16,6 +16,9 @@ Route::get('/items/{item}', [ItemController::class, 'show'])->whereNumber('item'
 // おすすめアイテムの詳細(結果表示)ページをランダムに表示
 Route::get('/items/random', [ItemController::class, 'random'])->name('items.random');
 
+// おすすめアイテム一覧表示
+Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+
 // 診断用質問①②③表示
 Route::get('/diagnosis/question1', [DiagnosisController::class, 'showQuestion1'])->name('diagnosis.question1');
 Route::get('/diagnosis/question2', [DiagnosisController::class, 'showQuestion2'])->name('diagnosis.question2');

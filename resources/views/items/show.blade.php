@@ -40,6 +40,24 @@
                         'isFavorited' => $isFavorited
                     ])
                 </div>
+
+                @if ($item->map_query)
+                <div class="mt-16 w-full">
+                    <h4 class="text-xl font-semibold mb-4 text-center">食べれるお店の場所</h4>
+                    <div class="h-96 rounded-lg overflow-hidden shadow-lg">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            style="border:0"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-maps.key') }}&q={{ urlencode($item->map_query) }}">
+                        </iframe>
+                    </div>
+                </div>
+                @endif
+
             </div>
         </div>
 
