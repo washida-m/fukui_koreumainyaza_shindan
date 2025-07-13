@@ -8,40 +8,47 @@
 
     <h2 class="text-4xl font-bold text-center my-8">あなたへのオススメ</h2>
 
-    <div class="flex flex-col items-center max-w-2xl mx-auto px-4">
-        {{-- 画像を表示 --}}
-        <div class="mb-6 w-full max-w-md">
+    <div class="flex flex-col md:flex-row max-w-6xl mx-auto gap-8 px-4">
 
-            @if ($item->image_path)
-                <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}" class="rounded-xl mx-auto block">
-            @else
-                <img src="https://placehold.jp/500x300.png?text=No+Image" alt="画像なし" class="rounded-xl border-gray-300 mx-auto block">
-            @endif
+        {{-- 左カラム：アイテム詳細 --}}
+        <div class="w-full md:w-5/6">
+            <div class="flex flex-col items-center">
+                {{-- 画像を表示 --}}
+                <div class="mb-6 w-full max-w-md">
+                    @if ($item->image_path)
+                        <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}" class="rounded-xl mx-auto block">
+                    @else
+                        <img src="https://placehold.jp/500x300.png?text=No+Image" alt="画像なし" class="rounded-xl border-gray-300 mx-auto block">
+                    @endif
+                </div>
+                {{-- カテゴリ名を表示 --}}
+                <div class="mb-2">
+                    <span class="badge badge-lg badge-outline">{{ $item->category }}</span>
+                </div>
+                {{-- アイテム名を表示 --}}
+                <h3 class="text-3xl font-bold text-center mt-1 mb-4">
+                    {{ $item->name }}
+                </h3>
+                {{-- 説明文を表示 --}}
+                <p class="mt-4 text-base text-gray-700 text-left w-full">
+                    {!! nl2br(e($item->description))!!}
+                </p>
+                {{-- お気に入り追加/削除ボタンを表示 --}}
+                <div class="mt-8 text-center">
+                    @include('favorites.favorite_button', [
+                        'item' => $item,
+                        'isFavorited' => $isFavorited
+                    ])
+                </div>
+            </div>
         </div>
-        {{-- カテゴリ名を表示 --}}
-        <div class="mb-2">
-            <span class="badge badge-lg badge-outline">{{ $item->category }}</span>
-        </div>
-        {{-- アイテム名を表示 --}}
-        <h3 class="text-3xl font-bold text-center mt-1 mb-4">
-            {{ $item->name }}
-        </h3>
-        {{-- 説明文を表示 --}}
-        <p class="mt-4 text-base text-gray-700 text-left w-full">
-            {!! nl2br(e($item->description))!!}
-        </p>
-        {{-- お気に入り追加/削除ボタンを表示 --}}
-        <div class="mt-8 text-center"> 
-            @include('favorites.favorite_button', [
-                'item' => $item,
-                'isFavorited' => $isFavorited
-            ])
-        </div>
-        {{-- API連携（楽天）表示 --}}
+
+        {{-- 右カラム：API連携（楽天）表示 --}}
+        <div class="w-full md:w-1/6">
             @if (!empty($rakutenProducts))
-                <div class="mt-12 pt-8 border-t border-gray-300 w-full">
-                    <h4 class="text-2xl font-semibold mb-6 text-left">楽天で関連商品をチェック</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <div class="pt-8 md:pt-0 w-full">
+                    <h4 class="text-2xl font-semibold mb-6 text-center">楽天でチェック</h4>
+                    <div class="grid grid-cols-1 gap-4">
                         @foreach ($rakutenProducts as $r_ItemData)
                             @php
                                 $r_Item = $r_ItemData['Item']; // 楽天APIのレスポンスは'Item'キーにアイテム情報が格納
@@ -76,7 +83,9 @@
                     </div>
                 </div>
             @endif
+        </div>
     </div>
+
     <div class="text-center mt-8">
         <a href="/" class="link link-hover text-info text-lg underline">TOPページに戻る</a>
     </div>
