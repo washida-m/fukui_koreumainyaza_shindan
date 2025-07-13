@@ -6,12 +6,12 @@
 {{-- メインコンテンツ --}}
 @section('content')
 
-    <h2 class="text-5xl font-bold text-center my-16">あなたへのオススメ</h2>
-
-    <div class="flex flex-col md:flex-row max-w-6xl mx-auto gap-8 px-4">
+    <div class="flex flex-col md:flex-row md:items-baseline max-w-7xl mx-auto gap-8 px-4 mb-16">
 
         {{-- 左カラム：アイテム詳細 --}}
         <div class="w-full md:w-5/6">
+            <h2 class="text-5xl font-bold text-center my-16">あなたへのオススメ</h2>
+
             <div class="flex flex-col items-center">
                 {{-- 画像を表示 --}}
                 <div class="mb-6 w-full max-w-md">
@@ -30,7 +30,7 @@
                     {{ $item->name }}
                 </h3>
                 {{-- 説明文を表示 --}}
-                <p class="mt-4 text-base text-gray-700 text-left w-full">
+                <p class="mt-4 text-base text-gray-700 text-center w-full max-w-xl mx-auto">
                     {!! nl2br(e($item->description))!!}
                 </p>
                 {{-- お気に入り追加/削除ボタンを表示 --}}
@@ -42,7 +42,7 @@
                 </div>
 
                 @if ($item->map_query)
-                <div class="mt-16 w-full">
+                <div class="mt-16 w-full max-w-xl mx-auto">
                     <h4 class="text-xl font-semibold mb-4 text-center">食べれるお店の場所</h4>
                     <div class="h-96 rounded-lg overflow-hidden shadow-lg">
                         <iframe
