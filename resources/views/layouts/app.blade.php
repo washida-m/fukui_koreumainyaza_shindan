@@ -9,12 +9,12 @@
     @vite(['resources/css/app.css'])
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen">
 
     {{-- ナビゲーションバー --}}
     @include('commons.navbar')
 
-    <div class="container mx-auto">
+    <div class="container mx-auto flex-grow">
         {{-- エラーメッセージ --}}
         @include('commons.error_messages')
 
