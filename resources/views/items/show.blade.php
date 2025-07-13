@@ -6,7 +6,7 @@
 {{-- メインコンテンツ --}}
 @section('content')
 
-    <h2 class="text-4xl font-bold text-center my-8">あなたへのオススメ</h2>
+    <h2 class="text-5xl font-bold text-center my-16">あなたへのオススメ</h2>
 
     <div class="flex flex-col md:flex-row max-w-6xl mx-auto gap-8 px-4">
 
