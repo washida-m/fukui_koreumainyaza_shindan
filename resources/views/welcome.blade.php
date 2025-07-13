@@ -35,16 +35,19 @@
 
         <p class="text-xl text-gray-900 text-center my-10">いくつかの質問に答えたり、ボタンを押すだけで、</br>福井のお土産やグルメの中から、あなたへのおすすめが表示されます！</br>気軽に試してみての〜</p>
     
-        {{-- ランダム表示用ボタンを表示 --}}
-        <div class="text-center mt-8 space-x-4">
-                <a href="{{ route('items.random') }}" class="btn btn-secondary btn-lg py-9 w-72 text-2xl">今日のオススメは？</a> 
-                <p class="text-sm text-gray-600 my-2  text-center">ランダムにおすすめを表示</p>
-        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
 
-        {{-- 診断用ボタンを表示 --}}
-        <div class="text-center mt-8 space-x-4">
-            <a href="{{ route('diagnosis.question1') }}" class="btn btn-primary btn-lg w-72 py-9 text-2xl">診断スタート！</a> 
-            <p class="text-sm text-gray-600 my-2">質問に答えてオススメを見つける</p>
+            {{-- ランダム表示用ボタンを表示 --}}
+            <div class="text-center">
+                    <a href="{{ route('items.random') }}" class="btn btn-secondary btn-lg py-9 w-72 text-2xl">今日のオススメは？</a> 
+                    <p class="text-sm text-gray-600 my-2  text-center">ランダムにおすすめを表示</p>
+            </div>
+
+            {{-- 診断用ボタンを表示 --}}
+            <div class="text-center">
+                <a href="{{ route('diagnosis.question1') }}" class="btn btn-primary btn-lg w-72 py-9 text-2xl">診断スタート！</a> 
+                <p class="text-sm text-gray-600 my-2">質問に答えてオススメを見つける</p>
+            </div>
         </div>
 
     
