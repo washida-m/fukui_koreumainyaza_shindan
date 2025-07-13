@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Item;
 
@@ -16,137 +16,153 @@ class ItemSeeder extends Seeder
         Item::create([
             'name' => '羽二重餅',
             'category' => '土産',
-            'description' => '福井の定番土産やざ！絹のような滑らかな舌触りがたまらんのぉ。',
-            'image_path' => 'images/habutae.jpg', // storage/app/public/images に置く
+            'description' => "福井の定番土産やざ！絹のような滑らかな舌触りがたまらんのぉ。\n\n【ちょっと豆知識】\n明治時代、福井が誇る絹織物「羽二重」のなめらかさを、お菓子で表現できないかと考案されたのが始まりなんや。まさに「食べる絹」やざ！",
+            'image_path' => 'images/images_items/habutae.jpg',
             'rakuten_keyword' => '羽二重餅 福井',
         ]);
 
         Item::create([
             'name' => 'ソースカツ丼',
             'category' => 'グルメ',
-            'description' => '福井県民のソウルフード！甘めのソースがカツとご飯に絡んで、もう最高やざ！',
-            'image_path' => 'images/sauce_katsudon.jpg',
+            'description' => "福井県民のソウルフード！甘めのソースがカツとご飯に絡んで、もう最高やざ！\n\n【ちょっと豆知識】\n大正時代にドイツで料理を学んだ高畠増太郎氏が、ドイツ仕込みのウスターソースを日本人に合うようにアレンジしてカツにかけたのが始まりなんや。その後、高畠氏は福井へ戻り、ヨーロッパ軒を開いたんやと。",
+            'image_path' => 'images/images_items/sauce_katsudon.jpg',
             'rakuten_keyword' => 'ソースカツ丼 福井',
         ]);
         
         Item::create([
             'name' => '水ようかん',
             'category' => '土産',
-            'description' => '福井の冬の風物詩！福井は冬にこたつで冷たい水ようかん食べるんやで！',
-            'image_path' => 'images/mizu_yokan.jpg', // storage/app/public/images に置く
+            'description' => "福井の冬の風物詩！福井は冬にこたつで冷たい水ようかん食べるんやで！\n\n【ちょっと豆知識】\nルーツは江戸から昭和まで続いた「丁稚奉公」で、関西に奉公に行った福井の若いもんが、年末に練りようかん持って帰ってきてのぉ、水と寒天で炊き直して増やして食べたんが始まりなんやって。",
+            'image_path' => 'images/images_items/mizu_yokan.jpg',
             'rakuten_keyword' => '水ようかん 福井',
         ]);
 
         Item::create([
             'name' => '五月ヶ瀬 (さつきがせ)',
             'category' => '土産',
-            'description' => '福井を代表する銘菓！ピーナッツが入った硬めの煎餅で、このガリッとした歯ごたえと香ばしさがたまらんのぉ。',
-            'image_path' => 'images/satsukigase.jpg', // storage/app/public/images に置く
+            'description' => "福井を代表する銘菓！ピーナッツが入った硬めの煎餅で、このガリッとした歯ごたえと香ばしさがたまらんのぉ。\n\n【ちょっと豆知識】\n五月ヶ瀬には、創業者・瀬川家の家紋「丸に三つ柏」や、福井藩主・松平家にちなむ「六つ葵」、さらに加賀藩・前田家にちなむ「梅鉢」の紋が込められとるんや。これは、地元福井や石川の販売店さん、納入業者さんに支えられてきた感謝の気持ちをいつまでも忘れんためなんやって。",
+            'image_path' => 'images/images_items/satsukigase.jpg',
             'rakuten_keyword' => '五月ヶ瀬 福井',
         ]);
 
         Item::create([
             'name' => '小鯛の笹漬け',
             'category' => '土産',
-            'description' => '若狭地方の伝統的なお土産！笹の香りがふわっとして、お酒のあてにも、ご飯のお供にもええんやわ。',
-            'image_path' => 'images/sasazuke.jpg', // storage/app/public/images に置く
+            'description' => "若狭地方の伝統的なお土産！笹の香りがふわっとして、お酒のあてにも、ご飯のお供にもええんやわ。\n\n【ちょっと豆知識】\n昔、「生鯖塩して担い京へ行き仕る」と言われるほど、若狭から京都へたくさんの鯖が運ばれとったんや。その道は「鯖街道」と呼ばれて親しまれとる。流通が今ほどよくなかった時代、魚を長持ちさせるために、レンコダイ（小鯛）を酢でしめて笹で包む保存食として考えられたんや。",
+            'image_path' => 'images/images_items/sasazuke.jpg',
             'rakuten_keyword' => '小鯛の笹漬け 福井',
         ]);
 
         Item::create([
             'name' => 'へしこ',
             'category' => '土産',
-            'description' => '鯖を糠漬けにした、若狭地方の保存食！独特の風味と塩気があるけど、これがまたお茶漬けとか、酒の肴に最高なんや！',
-            'image_path' => 'images/heshiko.jpg', // storage/app/public/images に置く
-            'rakuten_keyword' => 'へしこ 福井',
+            'description' => "鯖を糠漬けにした、若狭地方の保存食！独特の風味と塩気があるけど、これがまたお茶漬けとか、酒の肴に最高なんや！\n\n【ちょっと豆知識】\n生の鯖と比べて、旨味成分のアミノ酸は約2.5倍、血圧を抑えるペプチドは5倍も含まれとるんや。さらにDHAなどの健康成分も豊富で、福井では夏バテ予防の食材としても愛されとるんやで。熟成した旨味は「和製アンチョビ」とも呼ばれ、パスタとかにも合うんやざ。",
+            'image_path' => 'images/images_items/heshiko.jpg',
+            'rakuten_keyword' => '福井 へしこ',
         ]);
 
         Item::create([
             'name' => '花らっきょう',
             'category' => '土産',
-            'description' => '坂井市の三里浜で作られる、小粒でシャキシャキした歯ごたえが特徴のらっきょうやざ。カレーのお供はもちろん、お酒のアテにもええんやわ。',
-            'image_path' => 'images/hana_rakkyo.jpg', // storage/app/public/images に置く
+            'description' => "坂井市の三里浜で作られる、小粒でシャキシャキした歯ごたえが特徴のらっきょうやざ。カレーのお供はもちろん、お酒のアテにもええんやわ。\n\n【ちょっと豆知識】\nらっきょうは普通1年で収穫するけど、三里浜では3年かけて育てる「三年子」が有名なんや。通常のらっきょうに比べて、繊維が細かくなって、あの独特の歯ごたえが生まれるんやと。",
+            'image_path' => 'images/images_items/hana_rakkyo.jpg',
             'rakuten_keyword' => '花らっきょう 福井',
         ]);
 
         Item::create([
             'name' => 'たくあんの煮たの',
             'category' => '土産',
-            'description' => '昔から親しまれている郷土料理！古くなったたくあんを醤油の味付けで柔らかく煮込んだもので、ご飯のおかずや酒の肴として人気があるんや！',
-            'image_path' => 'images/takuan_nitano.jpg', // storage/app/public/images に置く
+            'description' => "昔から親しまれている郷土料理！古くなったたくあんを醤油の味付けで柔らかく煮込んだもので、ご飯のおかずや酒の肴として人気があるんや！\n\n【ちょっと豆知識】\nたくあんの煮たのは、たくあんを塩抜きした後に柔らかくなるまで煮る手間かけることから「贅沢煮」とも呼ばれているんやで。近くの石川県、富山県でも古たくあんを煮付けた郷土料理があって、石川県では「おくもじ」、富山県では「いりこぐ・いりごき」と呼んでるんやって！",
+            'image_path' => 'images/images_items/takuan_nitano.jpg',
             'rakuten_keyword' => 'たくあんの煮たの 福井',
         ]);
 
         Item::create([
             'name' => '焼き鯖寿司',
             'category' => 'グルメ',
-            'description' => '香ばしく焼いた鯖と酢飯の組み合わせが絶妙やざ！福井の空弁としても人気やし、一本ペロリと食べてまうんやわ〜！',
-            'image_path' => 'images/yakisaba_sushi.jpg',
-            'rakuten_keyword' => 'ソースカツ丼 福井',
+            'description' => "香ばしく焼いた鯖と酢飯の組み合わせが絶妙やざ！福井の空弁としても人気やし、一本ペロリと食べてまうんやわ〜！\n\n【ちょっと豆知識】\n焼き鯖寿司が食べられるようになったのは、意外と新しく、2000年頃から。「若廣」の焼き鯖寿司が羽田空港の空弁で大ヒットしたのがきっかけで、全国的に知名度が一気に上がったんや。",
+            'image_path' => 'images/images_items/yakisaba_sushi.jpg',
+            'rakuten_keyword' => '焼き鯖寿司 福井',
         ]);
 
         Item::create([
             'name' => '越前おろしそば',
             'category' => 'グルメ',
-            'description' => '福井で『そば』といったらやっぱこれ！冷たいそばにたっぷりの大根おろしと鰹節、ネギを乗せて、だしをぶっかけて食べるんやざ。',
-            'image_path' => 'images/oroshi_soba.jpg',
+            'description' => "福井で『そば』といったらやっぱこれ！冷たいそばにたっぷりの大根おろしと鰹節、ネギを乗せて、だしをぶっかけて食べるんやざ。\n\n【ちょっと豆知識】\n昭和天皇が福井に来られた時にこのおろしそばを召し上がり、「越前のそばは大変おいしかった」と述べられたことで「越前おろしそば」と呼ばれるようになったんやって！",
+            'image_path' => 'images/images_items/oroshi_soba.jpg',
             'rakuten_keyword' => '越前そば おろしそば 福井',
         ]);
 
         Item::create([
             'name' => '越前がに',
             'category' => 'グルメ',
-            'description' => '黄色いタグが目印のブランド蟹！冬には福井県最大のカニの祭典『越前かにまつり』もやってるんやで！',
-            'image_path' => 'images/echizen_gani.jpg',
-            'rakuten_keyword' => '越前がに 福井',
+            'description' => "黄色いタグが目印のブランド蟹！冬には福井県最大のカニの祭典『越前かにまつり』もやってるんやで！\n\n【ちょっと豆知識】\n福井県で水揚げされたズワイガニには、黄色いタグが付けられるんや。これが「越前がに」の証で、水揚げ漁港名もしっかり刻印されとる。しかもタグは一度使うと再利用できん特別仕様で、漁協と漁師さんが厳重に管理しとるんやで。",
+            'image_path' => 'images/images_items/echizen_gani.jpg',
+            'rakuten_keyword' => '福井　越前ガニ',
         ]);
 
         Item::create([
             'name' => 'ボルガライス',
             'category' => 'グルメ',
-            'description' => '越前市のご当地グルメ！オムライスの上にトンカツが乗って、さらにデミグラスソースやトマトソースがかかってる、ボリューム満点の一品やで！',
-            'image_path' => 'images/volga_rice.jpg',
-            'rakuten_keyword' => 'ボルガライス レトルト',
+            'description' => "越前市のご当地グルメ！オムライスの上にトンカツが乗って、さらにデミグラスソースやトマトソースがかかってる、ボリューム満点の一品やで！\n\n【ちょっと豆知識】\nその名前の由来や発祥の店は謎に包まれとるんや。日本ボルガラー協会もあって、サイトにはボルガライスについての情報や美味しいお店の紹介がされてるんやで！",
+            'image_path' => 'images/images_items/volga_rice.jpg',
+            'rakuten_keyword' => '福井 ボルガライス レトルト',
         ]);
 
         Item::create([
             'name' => '谷口屋の油揚げ',
             'category' => 'グルメ',
-            'description' => '坂井市丸岡町竹田にある『谷口屋』さんの油揚げは、ぶっとくてでっかいんや！外はカリッ、中はふんわりジューシー！',
-            'image_path' => 'images/volga_rice.jpg',
+            'description' => "坂井市丸岡町竹田にある『谷口屋』さんの油揚げは、ぶっとくてでっかいんや！外はカリッ、中はふんわりジューシー！\n\n【ちょっと豆知識】\n谷口屋の油揚げは、昔ながらの製法で雪の中でひとばん寝かしたオリジナルの天然にがりと、白山から流れる水で作られた木綿豆腐を、約1時間かけて油で揚げとるんや。ちなみに総務省の調査では、福井市は油揚げ・がんもどきの購入額が全国平均の2倍以上で、昭和38年から61年間ずっと全国一位なんやで！",
+            'image_path' => 'images/images_items/taniguchiya_aburaage.jpg',
             'rakuten_keyword' => '谷口屋 油揚げ 福井',
         ]);
 
         Item::create([
             'name' => 'サバエドッグ',
             'category' => 'グルメ',
-            'description' => '鯖江市のB級グルメ!肉巻きおにぎりをフライにしてソースをたっぷりつけたもので、“歩きながら食べれるソースかつ丼”。',
-            'image_path' => 'images/sabae_dog.jpg',
+            'description' => "鯖江市のB級グルメ!ソースかつ丼が串に刺さった、食べ歩きできるグルメや！\n\n【ちょっと豆知識】\n2010年に発売した時は、「フクイドッグ」という名前やったんやけど、当時の市長さんが「美味しいから、鯖江の名物にしよう」と言ったことから「サバエドッグ」に。",
+            'image_path' => 'images/images_items/sabae_dog.jpg',
             'rakuten_keyword' => 'サバエドッグ 福井',
         ]);
 
         Item::create([
             'name' => 'せいこがに',
             'category' => 'グルメ',
-            'description' => '越前がにのメスのことやざ。お腹に抱えとるプチプチの『外子』と、甲羅ん中にある濃厚なオレンジ色の『内子』が絶品なんや！味噌も美味しくて、地元ではオスよりこっちが好きやって人も結構おるんやわ。',
-            'image_path' => 'images/seiko_gani.jpg',
+            'description' => "越前がにのメスのことやざ。お腹に抱えとるプチプチの『外子』と、甲羅ん中にある濃厚なオレンジ色の『内子』が絶品なんや！味噌も美味しくて、地元ではオスよりこっちが好きやって人も結構おるんやわ。\n\n【ちょっと豆知識】\nセイコガニは越前がによりも比較的安く出回るから庶民の味方なんやけど、資源保護のために、漁ができる期間が毎年11月6日から年末までの約2ヶ月間だけなんや。",
+            'image_path' => 'images/images_items/seiko_gani.jpg',
             'rakuten_keyword' => 'せいこがに 越前 福井',
         ]);
 
         Item::create([
             'name' => 'あべかわ餅',
             'category' => 'グルメ',
-            'description' => '黒蜜を絡めた餅に、きな粉をたっぷりまぶして食べるソウルフード！素朴で自然な甘さが、口の中いっぱいに広がるのがたまらんわ〜！',
-            'image_path' => 'images/abekawa_fukui.jpg',
-            'rakuten_keyword' => 'あべかわ餅 福井',
+            'description' => "黒蜜を絡めた餅に、きな粉をたっぷりまぶして食べるソウルフード！素朴で自然な甘さが、口の中いっぱいに広がるのがたまらんわ〜！\n\n【ちょっと豆知識】\n幕末の福井藩主・松平春嶽の随筆「眞雪草紙」にも、あべかわ餅の話が出てくるんや。「昔、松平忠昌公のころには毎月1日と15日に本丸であべかわ餅を配る習慣があった」とか、「代々の初入国の際には8月1日に出された」とか記されとるんやけど、倹約令でその習慣は途絶えたんやって。",
+            'image_path' => 'images/images_items/abekawa_fukui.jpg',
+            'rakuten_keyword' => '福井　あべ川餅',
         ]);
 
         Item::create([
             'name' => '秋吉 (やきとりの名門 秋吉)',
             'category' => 'グルメ',
-            'description' => '福井県民が愛してやまない、やきとりの超有名チェーン店やざ！ついつい何十本も食べちゃうんやわ。福井に来たら絶対寄ってほしいお店の一つ！',
-            'image_path' => 'images/akiyoshi.jpg',
+            'description' => "福井県民が愛してやまない、やきとりの超有名チェーン店やざ！ついつい何十本も食べちゃうんやわ。福井に来たら絶対寄ってほしいお店の一つ！\n\n【ちょっと豆知識】「やきとりの名門 秋吉」の創業者、島川丈男氏が自らの体験を綴った自伝的ビジネス書『夜逃げからの出発』が出版されとるんや。この本では、秋吉の焼き鳥がなぜこんなに美味しいのか、素材や味付け、焼き方のこだわりなんかについても触れられているんやで。読んだら秋吉食いたい...となるかも？？\n",
+            'image_path' => 'images/images_items/akiyoshi.jpg',
             'rakuten_keyword' => '秋吉 焼き鳥 通販',
+        ]);
+        
+        Item::create([
+            'name' => '羽二重くるみ',
+            'category' => '土産',
+            'description' => "福井お土産ランキング上位にもなってるんやで〜！もちもちの柔らかな羽二重餅に甘く煮たくるみをちらし 、バター香るカステラのようなシュー生地でサンドした、食感と風味が絶妙な逸品！\n\n【ちょっと豆知識】\n回全国菓子大博覧会で内閣総理大臣賞を受賞したこともあるんやで。伝統の羽二重餅を、現代風にアレンジした『進化系』のお土産や。和と洋のええとこ取りで、若い人からお年寄りまで、みんなに愛されとるんやざ。",
+            'image_path' => 'images/images_items/habutae_kurumi.jpg',
+            'rakuten_keyword' => '福井 羽二重くるみ',
+        ]);
+
+        Item::create([
+            'name' => '酒まんじゅう',
+            'category' => 'グルメ',
+            'description' => "ほんのりお酒が香るもっちりとした皮とこし餡の調和がたまらん〜！お土産にもいいけど、お店で出来立ての温かいのも食べてほしい！\n\n【ちょっと豆知識】\n酒まんじゅうには焼き印が押されとって店によって違うから、焼き印を見ればどこの店のものかわかるようになっているんやで。",
+            'image_path' => 'images/images_items/saka_manju.jpg',
+            'rakuten_keyword' => '福井 酒まんじゅう',
         ]);
     }
 }

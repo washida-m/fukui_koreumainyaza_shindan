@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ItemSeeder::class, // 作成したItemSeederを呼び出す
+            ItemSeeder::class,
+            LandscapeSeeder::class, 
         ]);
 
         User::factory()->create([
