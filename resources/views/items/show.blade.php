@@ -52,12 +52,15 @@
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-maps.key') }}&q={{ urlencode($item->map_query) }}">
+                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-maps.key') }}&q={{ $item->map_query }}">
                         </iframe>
                     </div>
                 </div>
                 @endif
+            </div>
 
+            <div class="text-center mt-16">
+                <a href="/" class="link link-hover text-info text-lg underline">TOPページに戻る</a>
             </div>
         </div>
 
@@ -102,9 +105,5 @@
                 </div>
             @endif
         </div>
-    </div>
-
-    <div class="text-center mt-8">
-        <a href="/" class="link link-hover text-info text-lg underline">TOPページに戻る</a>
     </div>
 @endsection 
