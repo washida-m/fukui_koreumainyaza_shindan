@@ -19,7 +19,7 @@
                     @if ($favorite->item)
                         <tr class="hover">
                             <td>
-                                <span class="badge badge-ghost badge-sm">{{ $favorite->item->category }}</span>
+                                <span class="badge {{ $favorite->item->category == '土産' ? 'badge-warning' : 'badge-accent' }}  badge-sm text-white">{{ $favorite->item->category }}</span>
                             </td>
                             <td>
                                 <a href="{{ route('items.show', $favorite->item->id) }}" class="link link-hover  text-lg">
