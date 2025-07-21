@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: fukui_koreumainyaza_shindan
+    name: fukui-shindan
     env: php
     plan: free
     buildCommand: composer install --no-dev --optimize-autoloader && npm install && npm run build
