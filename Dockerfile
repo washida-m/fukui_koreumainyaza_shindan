@@ -4,6 +4,8 @@ FROM php:8.3-fpm-alpine
 
 RUN apk add --no-cache nginx
 
+RUN apk add --no-cache postgresql-dev
+
 RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl \
     && docker-php-ext-enable pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl
 
