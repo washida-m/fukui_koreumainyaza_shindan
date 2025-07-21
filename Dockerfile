@@ -4,16 +4,7 @@ FROM php:8.3-fpm-alpine
 
 RUN apk add --no-cache nginx
 
-RUN apk add --no-cache \
-    php83-pdo_pgsql \
-    php83-mbstring \
-    php83-exif \
-    php83-pcntl \
-    php83-bcmath \
-    php83-gd \
-    php83-ctype \
-    php83-json \
-    php83-openssl \
+RUN apk add --no-cache php83-pdo_pgsql php83-mbstring php83-exif php83-pcntl php83-bcmath php83-gd php83-ctype php83-json php83-openssl
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
