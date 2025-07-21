@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: Fukui_koreumainyaza_shindan
+    name: fukui_koreumainyaza_shindan
     env: php
     plan: free
     buildCommand: composer install --no-dev --optimize-autoloader && npm install && npm run build
     startCommand: ./vendor/bin/heroku-php-apache2 public/
-    region: oregon # PostgreSQLと同じリージョン
+    region: oregon
     buildPacks:
       - url: https://github.com/heroku/heroku-buildpack-php
