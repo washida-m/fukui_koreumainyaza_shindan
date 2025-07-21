@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: Fukui_koreumainyaza_shindan
+    env: php
+    plan: free 
+    buildCommand: composer install --no-dev --optimize-autoloader && npm install && npm run build
+    startCommand: ./vendor/bin/heroku-php-apache2 public/
+    region: oregon
+    envVars:
+      - key: APP_KEY
+        generateValue: true 
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-d1v3ofidbo4c73f5bqa0-a.oregon-postgres.render.com
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        value: fukui_shindan_db
+      - key: DB_USERNAME
+        value: fukuiuser
+      - key: DB_PASSWORD
+        value: s5DPnfduIVJ0gFbXKvjTaFGyqVYBAMGd
+      - key: RAKUTEN_APP_ID
+        value: YOUR_RAKUTEN_APP_ID
+      - key: RAKUTEN_AFFILIATE_ID
+        value: YOUR_RAKUTEN_AFFILIATE_ID 
+      - key: Maps_API_KEY
+        value: YOUR_MAPS_API_KEY
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: PHP_VERSION
+        value: "8.3"
+      - key: WEB_CONCURRENCY
+        value: "1" 
+      - key: PHP_WEB_SERVER
+        value: apache
+    buildPacks: 
+      - url: https://github.com/heroku/heroku-buildpack-php
