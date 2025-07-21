@@ -14,7 +14,7 @@ RUN apk add --no-cache libpng-dev
 
 RUN apk add --no-cache libjpeg-turbo-dev
 
-RUN apk add --no-cache freetype-dev libwebp-dev libavif-dev libxpm-dev libtiff-dev giflib-dev
+RUN apk add --no-cache freetype-dev libwebp-dev libavif-dev libxpm-dev giflib-dev
 
 RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl \
     && docker-php-ext-enable pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl
