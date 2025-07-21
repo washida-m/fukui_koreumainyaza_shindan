@@ -4,20 +4,16 @@ FROM php:8.3-fpm-alpine
 
 RUN apk add --no-cache nginx
 
-RUN apk add --no-cache postgresql-dev
-
-RUN apk add --no-cache oniguruma-dev
-
-RUN apk add --no-cache zlib-dev
-
-RUN apk add --no-cache libpng-dev
-
-RUN apk add --no-cache libjpeg-turbo-dev
-
-RUN apk add --no-cache freetype-dev libwebp-dev libavif-dev libxpm-dev giflib-dev
-
-RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl \
-    && docker-php-ext-enable pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl
+RUN apk add --no-cache \
+    php83-pdo_pgsql \
+    php83-mbstring \
+    php83-exif \
+    php83-pcntl \
+    php83-bcmath \
+    php83-gd \
+    php83-ctype \
+    php83-json \
+    php83-openssl \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
