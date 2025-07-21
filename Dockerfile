@@ -6,6 +6,8 @@ RUN apk add --no-cache nginx
 
 RUN apk add --no-cache postgresql-dev
 
+RUN apk add --no-cache oniguruma-dev
+
 RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl \
     && docker-php-ext-enable pdo_pgsql mbstring exif pcntl bcmath gd ctype json openssl
 
