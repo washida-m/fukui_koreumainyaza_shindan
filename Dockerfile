@@ -13,7 +13,8 @@ RUN apk add --no-cache \
     php83-json \
     php83-openssl \
     nodejs \
-    npm
+    npm \
+    postgresql-dev
 
 # PHP拡張機能を有効化
 RUN docker-php-ext-install pdo pdo_pgsql \
