@@ -18,7 +18,8 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
+                    <img src="{{ asset('storage/images/fukui_logo2.jpeg') }}" alt="福井これうまいんやざ〜！診断ロゴ" class="w-28 h-28 object-contain mx-auto">
                 </a>
             </div>
 

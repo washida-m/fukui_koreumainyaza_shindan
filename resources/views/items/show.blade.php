@@ -9,7 +9,7 @@
     <div class="flex flex-col md:flex-row md:items-baseline max-w-7xl mx-auto gap-8 px-4 mb-16">
 
         {{-- 左カラム：アイテム詳細 --}}
-        <div class="w-full md:w-5/6">
+        <div class="w-full md:w-3/4">
             <h2 class="text-5xl font-bold text-center my-16">あなたへのオススメ</h2>
 
             <div class="flex flex-col items-center">
@@ -43,7 +43,7 @@
                     @endauth
 
                     @guest
-                        <p class="text-gray-500">お気に入り機能を利用するには、<a href="{{ route('login') }}" class="link link-info">ログイン</a>が必要です。</p>
+                        <p class="text-gray-500">※ お気に入り機能を利用するには、<a href="{{ route('login') }}" class="link link-info">ログイン</a>しての〜</p>
                     @endguest
                 </div>
 
@@ -58,7 +58,7 @@
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-maps.key') }}&q={{ $item->map_query }}">
+                            src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-maps.key') }}&q={{ urlencode($item->map_query) }}">
                         </iframe>
                     </div>
                 </div>
@@ -71,17 +71,16 @@
         </div>
 
         {{-- 右カラム：API連携（楽天）表示 --}}
-        <div class="w-full md:w-1/6">
+        <div class="w-full md:w-1/5">
             @if (!empty($rakutenProducts))
                 <div class="pt-8 md:pt-0 w-full">
                     <h4 class="text-2xl font-semibold mb-6 text-center">楽天でチェック</h4>
                     <div class="grid grid-cols-1 gap-4">
                         @foreach ($rakutenProducts as $r_ItemData)
                             @php
-                                $r_Item = $r_ItemData['Item']; // 楽天APIのレスポンスは'Item'キーにアイテム情報が格納
+                                $r_Item = $r_ItemData['Item'];
                             @endphp
-                            <div class="card bg-base-100 flex flex-col h-full">
-                                {{-- 左：商品画像表示 --}}
+                            <div class="card bg-base-100 flex flex-col h-full shadow rakuten-card">
                                 <figure class="h-48 bg-white p-2 flex items-center justify-center rounded-t-lg">
                                     @if (!empty($r_Item['mediumImageUrls'][0]['imageUrl']))
                                         <img src="{{ $r_Item['mediumImageUrls'][0]['imageUrl'] }}" alt="画像なし" class="h-full w-auto object-contain">
@@ -89,27 +88,52 @@
                                         <img src="https://placehold.jp/200x200.png?text=No+Image" alt="画像なし" class="h-24 w-auto object-contain">
                                     @endif
                                 </figure>
-                                {{-- 右：商品名、金額表示 --}}
                                 <div class="card-body p-4 flex-grow flex flex-col justify-between">
                                     <h5 class="text-sm font-semibold leading-tight mb-1">
                                         <a href="{{ $r_Item['itemUrl'] }}" target="_blank" rel="noopener noreferrer" class="link link-hover text-info">
                                             {{ Str::limit($r_Item['itemName'], 50) }}
                                         </a>
                                     </h5>
-                                    <p class="text-gray-800 text-lg mt-1">
+                                    <p class="text-gray-800 text-lg mt-1 text-center">
                                         {{ number_format($r_Item['itemPrice']) }}円
                                     </p>
+                                    <div class="card-actions justify-center mt-2">
+                                        <button class="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white shadow-md share-btn" 
+                                            data-url="{{ $r_Item['itemUrl'] }}" 
+                                            data-name="{{ $r_Item['itemName'] }}">共有</button>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                     <div class="text-center mt-8 mb-4">
-                        <!-- Rakuten Web Services Attribution Snippet FROM HERE -->
                         <a href="https://developers.rakuten.com/" target="_blank">Supported by Rakuten Developers</a>
-                        <!-- Rakuten Web Services Attribution Snippet TO HERE -->
                     </div>
                 </div>
             @endif
         </div>
     </div>
-@endsection 
+    
+    {{-- モーダル --}}
+    <dialog id="share_modal_desktop" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">この商品をシェアする</h3>
+            <p class="py-4 text-sm" id="share-item-name-desktop"></p>
+            
+            <div class="flex justify-center items-center py-4 space-x-4">
+                {{-- Slack共有ボタン(まだ接続うまくできない....泣) --}}
+                <a href="#" id="slack-share-link-desktop" target="_blank" class="btn">Slackで共有</a>
+                {{-- LINE共有ボタン --}}
+                <a href="#" id="line-share-link-desktop" target="_blank" class="btn">LINEで共有</a>
+                {{-- コピーボタン --}}
+                <button id="copy-share-link-desktop" class="btn">リンクをコピー</button>
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">閉じる</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+@endsection

@@ -1,10 +1,11 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-20">
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> --}}
+                        <img src="{{ asset('storage/images/fukui_logo.jpeg') }}" alt="福井これうまいんやざ〜！診断ロゴ" class="block h-20 w-auto object-contain">
                     </a>
                 </div>
 
@@ -12,11 +13,11 @@
                     <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                         アイテム一覧
                     </x-nav-link>
-                    @auth
+                    {{-- @auth
                         <x-nav-link :href="route('favorites.index')" :active="request()->routeIs('favorites.index')">
                             お気に入り一覧
                         </x-nav-link>
-                    @endauth
+                    @endauth --}}
                 </div>
             </div>
 
@@ -33,10 +34,14 @@
                             </button>
                         </x-slot>
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">プロフィール</x-dropdown-link>
+                            {{-- <x-dropdown-link :href="route('profile.edit')">プロフィール</x-dropdown-link> --}}
+
+                            <x-dropdown-link :href="route('favorites.index')" class="text-center">
+                                お気に入り一覧
+                            </x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="text-center">
                                     ログアウト
                                 </x-dropdown-link>
                             </form>
@@ -44,9 +49,13 @@
                     </x-dropdown>
                 @else
                     {{-- ログインしていないユーザー向け --}}
-                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900">Log in</a>
+                    <a href="{{ route('login') }}">
+                        <x-secondary-button class="ms-4">{{ __('ログイン') }}</x-secondary-button>
+                    </a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ms-4 font-semibold text-gray-600 hover:text-gray-900">Register</a>
+                        <a href="{{ route('register') }}">
+                            <x-primary-button class="ms-4">{{ __('新規登録') }}</x-primary-button>
+                        </a>
                     @endif
                 @endauth
             </div>
@@ -72,7 +81,7 @@
         </div>
 
         @auth
-            <div class="pt-4 pb-1 border-t border-gray-200">
+            <div class="pt-4 pb-1">
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()?->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()?->email }}</div>
@@ -88,7 +97,7 @@
                 </div>
             </div>
         @else
-            <div class="py-1 border-t border-gray-200">
+            <div class="py-1">
                 <x-responsive-nav-link :href="route('login')">Log in</x-responsive-nav-link>
                 @if (Route::has('register'))
                     <x-responsive-nav-link :href="route('register')">Register</x-responsive-nav-link>

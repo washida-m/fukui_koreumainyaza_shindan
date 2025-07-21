@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="text-center my-10 px-4">
-        <h2 class="text-5xl font-bold">福井これうまいんやざ〜！診断</h2>
-        <p class="text-xl text-gray-500 mt-4">〜あなたにぴったりの福井の魅力、見つけよっさ！〜</p>
+        <h2 class="text-5xl font-bold font-fukui">福井これうまいんやざ〜！診断</h2>
+        <p class="text-xl text-gray-500 mt-4 font-fukui">〜あなたにぴったりの福井の魅力、見つけよっさ！〜</p>
 
         {{-- 風景画像の表示 --}}
         <div class="mt-12 mb-8">
@@ -40,13 +40,11 @@
                 <p class="text-sm text-gray-600 mt-2">ランダムにおすすめを表示</p>
             </div>
 
-            {{-- 診断機能は今後の実装のためコメントアウト --}}
-            {{--
+            {{-- 診断機能 --}}
             <div class="text-center">
-                <a href="#" class="btn btn-primary btn-lg py-6 w-64 text-xl">診断スタート！</a> 
+                <a href="{{ route('diagnosis.question1') }}" class="btn btn-primary btn-lg py-6 w-64 text-xl">診断スタート！</a> 
                 <p class="text-sm text-gray-600 mt-2">質問に答えてオススメを見つける</p>
             </div>
-            --}}
         </div>
     </div>
 @endsection

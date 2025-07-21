@@ -13,7 +13,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['"Potta One"', ...defaultTheme.fontFamily.sans],
+                'fukui': ['"Potta One"', 'cursive'],
             },
         },
     },
