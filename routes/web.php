@@ -61,3 +61,8 @@ Route::middleware('auth')->group(function () {
 
 // 認証関連ルート（Breezeデフォルト）
 require __DIR__.'/auth.php';
+
+// Renderが正常に動作しているか確認するためのパス
+Route::get('/healthz', function () {
+    return response('OK', 200);
+});
