@@ -35,10 +35,16 @@
                 </p>
                 {{-- お気に入り追加/削除ボタンを表示 --}}
                 <div class="mt-8 text-center">
-                    @include('favorites.favorite_button', [
-                        'item' => $item,
-                        'isFavorited' => $isFavorited
-                    ])
+                    @auth
+                        @include('favorites.favorite_button', [
+                            'item' => $item,
+                            'isFavorited' => $isFavorited
+                        ])
+                    @endauth
+
+                    @guest
+                        <p class="text-gray-500">お気に入り機能を利用するには、<a href="{{ route('login') }}" class="link link-info">ログイン</a>が必要です。</p>
+                    @endguest
                 </div>
 
                 @if ($item->map_query)

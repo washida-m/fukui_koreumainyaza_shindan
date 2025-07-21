@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('item_id');
+            
+            // どのユーザーがお気に入りしたか
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            
+            // どのアイテムがお気に入りされたか
+            $table->foreignId('item_id')->constrained()->onDelete('cascade');
+            
             $table->timestamps();
 
-            // 外部キー制約
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+            // 同じユーザーが同じアイテムを複数お気に入りできないようにする
+            $table->unique(['user_id', 'item_id']);
         });
-
-        // 認証機能を実装していないので、コメントアウト
-        // // item_idの組み合わせの重複を許さない
-        // $table->unique(['item_id']);
     }
 
     /**
